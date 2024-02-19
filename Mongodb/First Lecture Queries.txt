@@ -1,0 +1,546 @@
+use admin
+switched to db admin
+show db
+MongoshInvalidInputError: [COMMON-10001] 'db' is not a valid argument for "show".
+sow db
+SyntaxError: Missing semicolon. (1:3)
+
+> 1 | sow db
+    |    ^
+show db;
+MongoshInvalidInputError: [COMMON-10001] 'db' is not a valid argument for "show".
+show dbs;
+admin   40.00 KiB
+config  60.00 KiB
+local   40.00 KiB
+use sample;
+switched to db sample
+show collections;
+db.createCollection('Student');
+{ ok: 1 }
+show collections;
+Student
+help
+Shell Help
+use	Set current database
+show	'show databases'/'show dbs': Print a list of all available databases. 'show collections'/'show tables': Print a list of all collections for current database. 'show profile': Prints system.profile information. 'show users': Print a list of all users for current database. 'show roles': Print a list of all roles for current database. 'show log <type>': log for current connection, if type is not set uses 'global' 'show logs': Print all logs.
+exit	Quit the MongoDB shell with exit/exit()/.exit
+quit	Quit the MongoDB shell with quit/quit()
+Mongo	Create a new connection and return the Mongo object. Usage: new Mongo(URI, options [optional])
+connect	Create a new connection and return the Database object. Usage: connect(URI, username [optional], password [optional])
+it	result of the last line evaluated; use to further iterate
+version	Shell version
+load	Loads and runs a JavaScript file into the current shell environment
+enableTelemetry	Enables collection of anonymous usage data to improve the mongosh CLI
+disableTelemetry	Disables collection of anonymous usage data to improve the mongosh CLI
+passwordPrompt	Prompts the user for a password
+sleep	Sleep for the specified number of milliseconds
+print	Prints the contents of an object to the output
+printjson	Alias for print()
+convertShardKeyToHashed	Returns the hashed value for the input using the same hashing function as a hashed index.
+cls	Clears the screen like console.clear()
+isInteractive	Returns whether the shell will enter or has entered interactive mode
+For more information on usage: https://docs.mongodb.com/manual/reference/method
+db.test.drop()
+true
+show collections;
+Student
+show dbs;
+admin    40.00 KiB
+config  108.00 KiB
+local    40.00 KiB
+sample    8.00 KiB
+db.employee.insertOne({employeeName: 'Saish', Age: 22, Salary: '11k'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65cb0370c12a5bfc00d6f603')
+}
+show collections
+employee
+Student
+db.employee.find
+[Function: find] AsyncFunction {
+  returnsPromise: true,
+  apiVersions: [ 1, Infinity ],
+  returnType: 'Cursor',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+db.employee.find()
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+db.employee.insertOne({isMarried: true, hasChildren: true, hobbies: ['Dance', 'Driving', 'Painting']})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65cb05abc12a5bfc00d6f604')
+}
+db.employee.find()
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+db.employee.insertOne()
+MongoshInvalidInputError: [COMMON-10001] Missing required argument at position 0 (Collection.insertOne)
+db.employee.insertOne({})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.findOne()
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+db.employee.findOne({isMarried: true})
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+db.employee.findOne({employeeName: null})
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+db.employee.find()
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.find('employeeName: null')
+MongoInvalidArgumentError: Query filter must be a plain object or ObjectId
+db.employee.find({employeeName: null})
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.find({employeeName: /ais/})
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+db.employee.explain
+[Function: explain] {
+  apiVersions: [ 1, Infinity ],
+  returnType: 'Explainable',
+  serverVersions: [ '0.0.0', '999.999.999' ],
+  topologies: [ 'ReplSet', 'Sharded', 'LoadBalanced', 'Standalone' ],
+  returnsPromise: false,
+  deprecated: false,
+  platforms: [ 'Compass', 'Browser', 'CLI' ],
+  isDirectShellCommand: false,
+  acceptsRawInput: false,
+  shellCommandCompleter: undefined,
+  help: [Function (anonymous)] Help
+}
+db.employee.find.explain
+db.employee.find().explain{"executionStats"}
+SyntaxError: Missing semicolon. (1:26)
+
+> 1 | db.employee.find().explain{"executionStats"}
+    |                           ^
+db.employee.find().explain("executionStats")
+    winningPlan: {
+      stage: 'COLLSCAN',
+      direction: 'forward'
+    },
+    rejectedPlans: []
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 3,
+    executionTimeMillis: 1,
+    totalKeysExamined: 0,
+    totalDocsExamined: 3,
+    executionStages: {
+      stage: 'COLLSCAN',
+      nReturned: 3,
+      executionTimeMillisEstimate: 0,
+      works: 4,
+      advanced: 3,
+      needTime: 0,
+      needYield: 0,
+      saveState: 0,
+      restoreState: 0,
+      isEOF: 1,
+      direction: 'forward',
+      docsExamined: 3
+    }
+  },
+  command: {
+    find: 'employee',
+    filter: {},
+    '$db': 'sample'
+  },
+  serverInfo: {
+    host: 'ELTP-LAP-0234',
+    port: 27017,
+    version: '7.0.5',
+    gitVersion: '7809d71e84e314b497f282ea8aa06d7ded3eb205'
+  },
+  serverParameters: {
+    internalQueryFacetBufferSizeBytes: 104857600,
+    internalQueryFacetMaxOutputDocSizeBytes: 104857600,
+    internalLookupStageIntermediateDocumentMaxSizeBytes: 104857600,
+    internalDocumentSourceGroupMaxMemoryBytes: 104857600,
+    internalQueryMaxBlockingSortMemoryUsageBytes: 104857600,
+    internalQueryProhibitBlockingMergeOnMongoS: 0,
+    internalQueryMaxAddToSetBytes: 104857600,
+    internalDocumentSourceSetWindowFieldsMaxMemoryBytes: 104857600,
+    internalQueryFrameworkControl: 'trySbeRestricted'
+  },
+  ok: 1
+}
+db.employees.find({ "employeeName": { $gt: 'Saish' })
+SyntaxError: Unexpected token, expected "," (1:52)
+
+> 1 | db.employees.find({ "employeeName": { $gt: 'Saish' })
+    |                                                     ^
+db.employee.find({ "employeeName": { $gt: 'Saish' })
+SyntaxError: Unexpected token, expected "," (1:51)
+
+> 1 | db.employee.find({ "employeeName": { $gt: 'Saish' })
+    |                                                    ^
+db.employee.find({"employeeName": { $gt: Saish })
+SyntaxError: Unexpected token, expected "," (1:48)
+
+> 1 | db.employee.find({"employeeName": { $gt: Saish })
+    |                                                 ^
+db.employee.find({}, {employeeName: 1})
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604')
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.find({}, {_id:0, employeeName: 1 })
+{
+  employeeName: 'Saish'
+}
+{}
+{}
+db.employee.find({}).projection({_id:0, employeeName: 1 })
+{
+  employeeName: 'Saish'
+}
+{}
+{}
+db.employee.find().limit(1)
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+db.employee.find().limit(0)
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.find().skip(1)
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.find().skip(0)
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.find().skip(3)
+db.employee.find().short(1)
+TypeError: db.employee.find().short is not a function
+db.employee.find().sort({_id:1})
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+db.employee.insertOne({employeenName: 'Shreya'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65cb0cf0c12a5bfc00d6f606')
+}
+db.employee.find().sort({employeeName:1})
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+{
+  _id: ObjectId('65cb0cf0c12a5bfc00d6f606'),
+  employeenName: 'Shreya'
+}
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+db.employee.insertOne({employeeName: 'Shubham'})
+{
+  acknowledged: true,
+  insertedId: ObjectId('65cb0d23c12a5bfc00d6f607')
+}
+db.employee.find().sort({employeeName:1})
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+{
+  _id: ObjectId('65cb0cf0c12a5bfc00d6f606'),
+  employeenName: 'Shreya'
+}
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb0d23c12a5bfc00d6f607'),
+  employeeName: 'Shubham'
+}
+db.employee.find().sort({employeeName:-1}).limit(1)
+{
+  _id: ObjectId('65cb0d23c12a5bfc00d6f607'),
+  employeeName: 'Shubham'
+}
+db.employee.find().count({employeeName:1})
+5
+db.employee.find({employeeName:1}).count()
+0
+db.employee.find({employeeName:1}).itcount()
+0
+db.employee.find({employeeName:1}).itCount()
+TypeError: db.employee.fi ... me:1}).itCount is not a function
+db.employee.find().itCount()
+TypeError: db.employee.find().itCount is not a function
+db.employee.find().itcount()
+5
+db.employee.find({employeeName:1}).itCount()
+TypeError: db.employee.fi ... me:1}).itCount is not a function
+db.employee.find({employeeName:1}).itcount()
+0
+db.employee.find({employeeName:1}).
+SyntaxError: Unexpected token (1:35)
+
+> 1 | db.employee.find({employeeName:1}).
+    |                                    ^
+db.employee.find({employeeName:1})
+db.employee.find()
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+{
+  _id: ObjectId('65cb0cf0c12a5bfc00d6f606'),
+  employeenName: 'Shreya'
+}
+{
+  _id: ObjectId('65cb0d23c12a5bfc00d6f607'),
+  employeeName: 'Shubham'
+}
+db.employee.find({employeeName:1})
+db.employee.find({employeeName:'Shubham'})
+{
+  _id: ObjectId('65cb0d23c12a5bfc00d6f607'),
+  employeeName: 'Shubham'
+}
+db.employee.find({employeeName:'Shubham'})
+{
+  _id: ObjectId('65cb0d23c12a5bfc00d6f607'),
+  employeeName: 'Shubham'
+}
+db.employee.find({employeeName:'Shubham'}).itcount()
+1
+db.employee.updateOne({_id: ObjectId('65cb0d23c12a5bfc00d6f607')},{$set: {employeeName: 'Yashraj'}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.employee.find()
+{
+  _id: ObjectId('65cb0370c12a5bfc00d6f603'),
+  employeeName: 'Saish',
+  Age: 22,
+  Salary: '11k'
+}
+{
+  _id: ObjectId('65cb05abc12a5bfc00d6f604'),
+  isMarried: true,
+  hasChildren: true,
+  hobbies: [
+    'Dance',
+    'Driving',
+    'Painting'
+  ]
+}
+{
+  _id: ObjectId('65cb05bfc12a5bfc00d6f605')
+}
+{
+  _id: ObjectId('65cb0cf0c12a5bfc00d6f606'),
+  employeenName: 'Shreya'
+}
+{
+  _id: ObjectId('65cb0d23c12a5bfc00d6f607'),
+  employeeName: 'Yashraj'
+}
+sample
+Selection deleted
+//Difference b/w update and replace
+//Replace-one, //Replace-many

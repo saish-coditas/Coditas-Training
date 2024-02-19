@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: bisque;" >
+    <heading style="text-align:center;">
+        <h1>Employee Form</h1>
+    </heading>
+       <main>
+        <form style="margin-left:350px;margin-right:350px;">
+            <fieldset>
+            <div style="padding-bottom:5px;">
+                <label for="firstName">First Name:</label>
+                <input id="firstName" type="text">
+            </div>
+            
+            <div style="padding-bottom:5px;">
+                <label for="lastName">Last Name:</label>
+                <input id="lastName" type="text">
+            </div>
+
+            <div style="padding-bottom:5px;">
+                <label for="dob">Date of Birth:</label>
+                <input id="dob" type="date">
+            </div>
+
+            <div style="padding-bottom:5px;">
+                <label for="age">Age:</label>
+                <input id="age" type="number">
+            </div>
+
+            <div style="padding-bottom:5px;">
+                <label for="gender">Gender:</label>
+                <select>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="others">Others</option>
+                </select>
+            </div>
+            
+            <div style="padding-bottom:5px;">
+                <label for="mailID">Email ID:</label>
+                <input id="mailID" name="custName" type="email">
+            </div>
+
+            <div style="padding-bottom:5px;">
+                <label for="position">Positions available:</label><br/>
+                <label for="jDev">Junior Developer</label>
+                <input name="position" id="jDev" type="radio"><br/>
+                <label for="mDev">Mid-level Developer</label>
+                <input name="position" id="mDev" type="radio"><br/>
+                <label for="sDev">Senior Developer</label>
+                <input name="position" id="sDev" type="radio">
+            </div>
+
+            <div style="padding-bottom:5px;">
+                <label for="pwd">Password:</label>
+                <input id="pwd" name="password" type="password">
+            </div>
+
+            <div style="padding-bottom:5px;">
+                <label for="pwd">Confirm Password:</label>
+                <input id="pwd" name="password" type="password">
+            </div>
+            
+            <input type="submit">
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</reset>
+            </fieldset>
+            
+        </form>
+    </main>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Blog Website</title>
+    <style>
+        h1{
+            text-align: center;
+        }
+        body{
+            background-color: bisque;
+        }
+        .nav{
+            height: 120vh;
+            float: left;
+            margin-top: 175px;  
+            width: 25%;              
+        }
+        .tableClass{
+            float: right;
+            height: 120vh;
+            width: 25%;
+            margin-top: 175px;
+        }
+        footer
+        {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <section class="nav">
+        <nav >
+            <ul class="ul">
+                <li>HOME</li>
+                <li>ABOUT US</li>
+                <li><a href="#table">CONTACT US</a></li>
+                <li>JOIN US</li>
+            </ul>
+        </nav>
+    </section>
+    <section class="tableClass" >
+        <table border="1">
+            <tr>
+               <td>Blog Links</td> 
+            </tr>
+            
+            <tr>
+                <td><a href="#blog1">Blog 1</a></td>
+            </tr>
+            <tr>
+                <td><a href="#blog2">Blog 2</a></td>
+            </tr>
+            <tr>
+                <td><a href="#blog3">Blog 3</a></td>
+            </tr>
+            <tr>
+                <td><a href="#blog4">Blog 4</a></td>
+            </tr>
+        </table>
+    </section >
+    <main>
+        <h1>Saish Blogs</h1>
+        <section>
+            <h4 id="blog1">Blog 1</h4>
+            <article>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, consequatur aperiam. Earum placeat voluptas beatae, accusantium pariatur natus hic ut nam nemo unde odio, cumque autem nostrum vero laudantium modi fugiat enim sit vitae in. Sint nisi explicabo iure neque, optio possimus omnis, officiis totam quaerat, eos suscipit molestiae unde!
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. At culpa hic velit officia asperiores praesentium perspiciatis cum magni nemo necessitatibus consequuntur excepturi repellendus commodi expedita blanditiis veniam, unde quam sit animi in quo. Quasi deserunt voluptate hic excepturi eveniet amet dolores, laborum possimus eligendi beatae accusamus pariatur alias nulla consequatur?
+            </article>
+            <h4 id="blog2">Blog 2</h4>
+            <article>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, consequatur aperiam. Earum placeat voluptas beatae, accusantium pariatur natus hic ut nam nemo unde odio, cumque autem nostrum vero laudantium modi fugiat enim sit vitae in. Sint nisi explicabo iure neque, optio possimus omnis, officiis totam quaerat, eos suscipit molestiae unde!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae natus beatae eligendi molestiae delectus magni esse, incidunt sint distinctio tempore tempora odio suscipit sunt deleniti. Iure aliquam deleniti molestias ipsam, officiis maiores velit dolorum unde necessitatibus tenetur debitis sit. Magni, incidunt repellat! Natus exercitationem officiis a excepturi amet provident autem!
+            </article>
+            <h4 id="blog3">Blog 3</h4>
+            <article>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, consequatur aperiam. Earum placeat voluptas beatae, accusantium pariatur natus hic ut nam nemo unde odio, cumque autem nostrum vero laudantium modi fugiat enim sit vitae in. Sint nisi explicabo iure neque, optio possimus omnis, officiis totam quaerat, eos suscipit molestiae unde!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam totam architecto neque, a optio voluptas nisi. Illo officia, odit iure ad perferendis dicta nobis velit quas eveniet natus voluptas reiciendis tempore. Necessitatibus sunt ullam, nesciunt voluptatum iure beatae numquam aspernatur quam, fugit earum sapiente! Nostrum nesciunt unde reiciendis sunt delectus!
+            </article>
+            <h4 id="blog4">Blog 4</h4>
+            <article>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, consequatur aperiam. Earum placeat voluptas beatae, accusantium pariatur natus hic ut nam nemo unde odio, cumque autem nostrum vero laudantium modi fugiat enim sit vitae in. Sint nisi explicabo iure neque, optio possimus omnis, officiis totam quaerat, eos suscipit molestiae unde!
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Doloribus accusantium quod harum nesciunt aspernatur quos et nulla pariatur explicabo velit est, iusto minus doloremque magni qui reprehenderit, expedita enim cupiditate voluptatibus inventore eligendi blanditiis repellat optio! Corrupti alias quaerat quasi, ex earum atque esse consequatur, asperiores omnis aliquam, nostrum numquam.
+            </article>
+        </section>
+    </main>
+    <footer>
+        <form id="table" action="" method="post">
+            <h2>Contact Us</h2>
+            <div>
+                <label for="name1">Name:</label>
+                <input name="name1" id="name" type="text">
+            </div>
+            
+            <div>
+                <label for="mail">Email:</label>
+                <input name="mail" id="mail" type="email">
+            </div>
+            
+            <div>
+                <label for="option">Select:</label>
+                <select id="option" name="option">
+                    <option value="contact">Contact Us</option>
+                    <option value="query">Query</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="description">Description:</label>
+                <textarea name="description" id="description" rows="5" column="5"></textarea>
+            </div>
+    
+            <div>
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </footer>
+    
+</body>
+</html>

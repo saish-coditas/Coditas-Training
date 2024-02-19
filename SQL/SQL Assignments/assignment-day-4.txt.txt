@@ -1,0 +1,83 @@
+-- Create New database: Hospital
+-- Create Tables:
+--     1) Patients:
+--         patient_id, name, age, phone_number
+--     2) Doctors:
+--         doctor_id, name, specialization
+--     3) Prescriptions:
+--         prescription_id, patient_id, doctor_id, symptoms, medication
+--     4) Billing:
+--         billing_id, prescription_id, total_amount
+--     
+-- Add required foreign keys in Prescriptions.
+
+CREATE DATABASE hospital;
+USE hospital;
+CREATE TABLE patients (patient_id INT PRIMARY KEY, name VARCHAR(50), age INT, phone_number VARCHAR(12));
+CREATE TABLE doctors (doctor_id INT PRIMARY KEY, name VARCHAR(50), specialization VARCHAR(50));
+CREATE TABLE prescriptions (prescription_id INT PRIMARY KEY, patient_id INT, doctor_id INT, symptoms VARCHAR(50), medication VARCHAR(50));
+CREATE TABLE billing (billing_id INT, prescription_id INT, total_amount INT);
+
+ALTER TABLE prescriptions ADD CONSTRAINT fk_patient_id FOREIGN KEY (patient_id) REFERENCES patients (patient_id);
+ALTER TABLE prescriptions ADD CONSTRAINT fk_doctor_id FOREIGN KEY (doctor_id) REFERENCES doctors (doctor_id);
+ALTER TABLE billing ADD CONSTRAINT fk_prescription_id FOREIGN KEY (prescription_id) REFERENCES prescriptions (prescription_id);
+
+INSERT INTO patients (patient_id, name, age, phone_number) 
+VALUES 
+(1, 'John Doe', 25, '9876543210'),
+(2, 'Jane Smith', 30, '8987654321'),
+(3, 'Bob Johnson', 40, '7987654321'),
+(4, 'Alice Brown', 22, '6987654321'),
+(5, 'Charlie Davis', 35, '9123456789'),
+(6, 'Emily White', 28, '8123456789'),
+(7, 'David Wilson', 45, '7123456789'),
+(8, 'Sophia Miller', 32, '6123456789'),
+(9, 'Daniel Taylor', 27, '9653465870'),
+(10, 'Olivia Anderson', 50, '8984078901');
+
+INSERT INTO doctors (doctor_id, name, specialization) 
+VALUES 
+(1, 'Dr. Smith', 'Cardiology'),
+(2, 'Dr. Johnson', 'Pediatrics'),
+(3, 'Dr. Davis', 'Orthopedics'),
+(4, 'Dr. White', 'Dermatology'),
+(5, 'Dr. Miller', 'Neurology'),
+(6, 'Dr. Wilson', 'Gastroenterology'),
+(7, 'Dr. Brown', 'Ophthalmology'),
+(8, 'Dr. Taylor', 'ENT'),
+(9, 'Dr. Anderson', 'Internal Medicine'),
+(10, 'Dr. Smith', 'Obstetrics');
+
+INSERT INTO prescriptions (prescription_id, patient_id, doctor_id, symptoms, medication) 
+VALUES 
+(1, 1, 2, 'Fever', 'Paracetamol'),
+(2, 3, 5, 'Back Pain', 'Ibuprofen'),
+(3, 5, 8, 'Allergies', 'Loratadine'),
+(4, 2, 4, 'Skin Rash', 'Hydrocortisone'),
+(5, 7, 1, 'High Blood Pressure', 'Amlodipine'),
+(6, 4, 9, 'Headache', 'Aspirin'),
+(7, 8, 3, 'Fractured Arm', 'Cast and Painkillers'),
+(8, 6, 6, 'Stomach Pain', 'Omeprazole'),
+(9, 9, 7, 'Eye Infection', 'Antibiotic Eye Drops'),
+(10, 10, 10, 'Pregnancy Checkup', 'Prenatal Vitamins');
+
+INSERT INTO billing (billing_id, prescription_id, total_amount) 
+VALUES 
+(1, 1, 25),
+(2, 3, 20),
+(3, 5, 30),
+(4, 7, 50),
+(5, 9, 15),
+(6, 2, 12),
+(7, 4, 18),
+(8, 6, 10),
+(9, 8, 22),
+(10, 10, 35);
+
+SELECT * FROM patients;
+SELECT * FROM doctors;
+SELECT * FROM prescriptions;
+SELECT * FROM billing;
+
+-- Operations:
+INSERT INTO prescriptions VALUES (11, 11, 2, 'Fever', 'Dolo650'); -- Throws error

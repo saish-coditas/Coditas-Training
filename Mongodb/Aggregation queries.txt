@@ -1,0 +1,121 @@
+Question1:
+(Student collection)
+required response like this, where exam should be dynamically set from type field present in scores data.
+{
+  name: 'String',
+  exam: {
+    score: Number
+  },
+  so on......
+}
+
+Solution:
+Stage 1: Project
+{
+  name: 1,
+  scores: {
+    $map: {
+      input: "$scores",
+      as: "score",
+      in: {
+        k: "$$score.type",
+        v: {
+          score: "$$score.score",
+        },
+      },
+    },
+  },
+}
+
+Stage 2: replaceRoot
+/**
+ * replacementDocument: A document or string.
+ */
+{
+  newRoot: {
+    $mergeObjects: [
+      "$$ROOT",
+      { $arrayToObject: "$scores" },
+    ],
+  },
+}
+
+Stage 3: Project
+/**
+ * specifications: The fields to
+ *   include or exclude.
+ */
+{ scores: 0 }
+
+
+
+
+
+
+
+Question2:
+(ToDoTask collection)
+required response like this, where pending and completed should not be static.
+{
+  pending: [pending task data],
+  completed: [completed task data],
+}
+
+Solution:
+Stage 1: Group
+{
+  _id: "$status",
+  tasks: { $push: "$$ROOT" },
+}
+
+Stage 2: Group
+{
+  _id: null,
+  tasksByStatus: {
+    $push: {
+      k: "$_id",
+      v: "$tasks",
+    },
+  },
+}
+
+Stage 3: replaceRoot
+{
+  newRoot: {
+    $arrayToObject: "$tasksByStatus",
+  },
+}
+
+
+
+
+
+Question3:
+(Student collection)
+required response like this, where '$name' is value of name field
+{
+  name: 'String',
+  type 'String'
+  score: Number,
+  "$name": index number
+}
+
+Solution:
+Stage 1: Unwind
+"$scores"
+
+Stage 2: Project
+{
+  _id: 0,
+  name: "$name",
+  type: "$scores.type",
+  score: "$scores.score",
+}
+
+Stage 3: Unwind
+{
+  path: "$data",
+  includeArrayIndex: "globalIndex",
+}
+
+Could think of only till this stage

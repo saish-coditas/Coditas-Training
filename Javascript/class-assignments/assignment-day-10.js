@@ -70,46 +70,58 @@ console.log(width, height, area, perimeter);
 for(const user of users)
 {
   const{names, scores, skills, age} = user;
+  console.log(names, scores, skills, age);
 }
 
 // 5. Find the persons who have less than two skills
 
 
 // 6. Destructure the countries array print name, capital, population and languages of all countries
-const countries = {
+const myCountries = [{
   countryName: 'India',
   capital: 'New Delhi',
   population: 1300000000,
   languages: ['Hindi', 'English']
-}
-const {countryName, capital, population, languages} = countries;
+},
+{
+  countryName: 'United States',
+  capital: 'Washington DC',
+  population: 330000000,
+  languages: 'English'
+}]
+const [country1, country2] = myCountries;
+const {countryName1, capital1, population1, languages1} = country1;
+console.log(countryName1, capital1, population1, languages1);
+const {countryName2, capital2, population2, languages2} = country2;
+console.log(countryName2, capital2, population2, languages2);
 
 // 7. Destructure the following array name to name, skills array to skills, scores array to scores, JavaScript score to jsScore and React score to reactScore variable in one line.
 const student = ['David', ['HTML', 'CSS', 'JS', 'React'], [98, 85, 90, 95]]
-const[name, skills, jsScore, reactScore] = student;
+const[name, skills, scores] = student;
+const{jsScore, reactScore} = scores;
 console.log(name, skills, jsScore, reactScore);
 
 
 //8. Write a function called convertArrayToObject which can convert the array to a structure object.
-    const students = [
-        ['David', ['HTML', 'CSS', 'JS', 'Node'], [98, 85, 90, 95]],
-        ['John', ['HTML', 'CSS', 'JS', 'Node'], [85, 80, 85, 80]]
-      ]
-      let obj = Object.assign({name, skills, scores}, arr);
+const students = [
+  ['David', ['HTML', 'CSS', 'JS', 'Node'], [98, 85, 90, 95]],
+  ['John', ['HTML', 'CSS', 'JS', 'Node'], [85, 80, 85, 80]]
+]
+let obj = Object.assign({name, skills, scores}, arr);
 console.log(JSON.stringify(obj));
-    // console.log(convertArrayToObject(students))
-    // [
-    //   {
-    //     name: 'David',
-    //     skills: ['HTML','CSS','JS','Node'],
-    //     scores: [98,85,90,95]
-    //   },
-    //   {
-    //     name: 'John',
-    //     skills: ['HTML','CSS','JS','Node'],
-    //     scores: [85, 80,85,80]
-    //   }
-    // ]
+// console.log(convertArrayToObject(students))
+// [
+//   {
+//      name: 'David',
+//      skills: ['HTML','CSS','JS','Node'],
+//      scores: [98,85,90,95]
+//   },
+//   {
+//      name: 'John',
+//      skills: ['HTML','CSS','JS','Node'],
+//      scores: [85, 80,85,80]
+//   }
+// ]
 
 
 // 9. Copy the student object to newStudent without mutating the original object. In the new object add the following ?

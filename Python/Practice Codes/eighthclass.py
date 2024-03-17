@@ -35,7 +35,7 @@ found = findLike([1,2,3,4,5], 3)
 
 #Loan Factory Question
 def loan_factory(rate_of_interest):
-    def calculator(p,n,rate_of_interest):
+    def calculator(p,n):
         return p*n*rate_of_interest/100
     
     return calculator
@@ -44,8 +44,7 @@ car_loan_calc = loan_factory(8)
 home_loan_calc = loan_factory(10)
 personal_loan_calc = loan_factory(12)
 
-print(car_loan_calc(10000,5,10))
-#car_loan_calc(10)
+print(car_loan_calc(10000,5))
 
 #Closures
 X=10

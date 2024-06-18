@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Calculator App</title>
-    <link rel="stylesheet" href="./styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
     <h1>Calculator</h1>
+    <div id="outer-box">
+        <div id="inner-screen">
+            
+        </div>
+        <div>
+            <button>C</button>
+            <!-- Operations -->
+            <button>+/-</button>
+            <button>%</button>
+            <button id="add-button" class="operation">+</button>
+            <button id="subtract-button" class="operation">-</button>
+            <button id="multiply-button" class="operation">*</button>
+            <button id="divide-button" class="operation">/</button>
+            <!-- Numbers -->
+            <button id="one-button" class="numbers">1</button>
+            <button id="two-button" class="numbers">2</button>
+            <button id="three-button" class="numbers">3</button>
+            <button id="four-button" class="numbers">4</button>
+            <button id="five-button" class="numbers">5</button>
+            <button id="six-button" class="numbers">6</button>
+            <button id="seven-button" class="numbers">7</button>
+            <button id="eight-button" class="numbers">8</button>
+            <button id="nine-button" class="numbers">9</button>
+            <button id="zero-button">0</button>
+            <button id="dot-button">.</button>
+            <!-- Equal to -->
+            <button id="equals-button">=</button>
+        </div>
+    </div>
     <script src="./index.js"></script>
-</body>
+  </body>
 </html>

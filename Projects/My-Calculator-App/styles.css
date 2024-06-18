@@ -2,3 +2,39 @@ h1 {
     color: blueviolet;
     text-align: center;
 }
+
+body {
+    /* Light theme styles */
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+body.dark-mode {
+    /* Dark theme styles */
+    background-color: #333;
+    color: #f9f9f9;
+}
+
+#one-button{
+    background-color: #f9f9f9;
+}
+.numbers {
+    width: 100x;
+}
+#outer-box{
+    width: 250px;
+    height: 500px;
+    align-content:end;
+    align-self: center;
+    border: black;
+    background-color: bisque;
+    border-radius: 15px;
+}
+
+#inner-screen{
+    background-color: black;
+    width: 250px;
+    height: 200px;
+    align-self: last baseline;
+    border-radius: 15px;
+}
